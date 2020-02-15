@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./2222.jpg";
 const Profile = () => {
   return (
-    <div>
+    <div className='profile'>
       <div>
         <img src={logo} alt="logo" />
       </div>
