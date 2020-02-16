@@ -1,8 +1,9 @@
 import React from 'react';
 
-import s from './profile.module.css'
-
 import logo from './ProfileLogo.jpg';
+import MyPosts from './MyPosts/myPosts';
+
+import s from './profile.module.css'
 
 const Profile = () => {
   return (
@@ -11,17 +12,7 @@ const Profile = () => {
         <img src={logo} alt="logo" />
       </div>
       <div>ava+ description</div>
-      <div>
-        My posts
-        <div>
-          New posts
-          <div className={s.posts}>
-            <div className={s.item}>post 1</div>
-            <div className={s.item}>post 2</div>
-          </div>
-          <div></div>
-        </div>
-      </div>
+      <MyPosts />
     </div>
   );
 };
