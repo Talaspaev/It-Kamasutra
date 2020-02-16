@@ -1,5 +1,7 @@
 import React from "react";
+
 import logo from "./2222.jpg";
+
 const Profile = () => {
   return (
     <div className='profile'>
@@ -21,4 +23,5 @@ const Profile = () => {
     </div>
   );
 };
+
 export default Profile;
