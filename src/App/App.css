@@ -1,0 +1,26 @@
+.wrapper{
+  margin: 0 auto;
+  display: grid;
+  width: 1200px;
+  grid-template-areas: 
+  "h h"
+  "n p";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+}
+.header{
+  grid-area: h;
+  background: green;
+}
+.header img{
+  width: 20px;
+ 
+}
+.nav{
+  grid-area: n;
+  background: burlywood;
+}
+.profile{
+  grid-area: p;
+  background: pink;
+}
