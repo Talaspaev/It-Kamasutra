@@ -9,10 +9,6 @@
   grid-template-columns: 2fr 10fr;
 }
 
-.nav{
-  grid-area: n;
-  background: burlywood;
-}
 .profile{
   grid-area: p;
   background: pink;
