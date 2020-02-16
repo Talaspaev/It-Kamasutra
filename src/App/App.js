@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Route } from "react-router-dom";
 
 import Header from '../Components/Header/header';
 import NavBar from '../Components/Navbar/nav';
@@ -10,14 +11,16 @@ import './App.css';
 
 function App() {
   return (
+    <BrowserRouter> 
     <div className="wrapper">
       <Header />
       <NavBar />
       <div className='app-wrapper-contnent'>
-        {/* <Profile /> */}
-        <Dialogs />
+        <Route path="/profile" component={Profile}/>
+        <Route path="/dialogs" component={Dialogs}/>
       </div>
-    </div>
+    </div></BrowserRouter>
+
   );
 }
 
