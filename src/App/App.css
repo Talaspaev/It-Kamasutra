@@ -9,7 +9,3 @@
   grid-template-columns: 2fr 10fr;
 }
 
-.profile{
-  grid-area: p;
-  background: pink;
-}

@@ -1,0 +1,10 @@
+.profile{
+    grid-area: p;
+    background: pink;
+  }
+  .posts{
+      background: gray;
+  }
+  .item{
+      color: purple;
+  }
