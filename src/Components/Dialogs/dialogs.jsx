@@ -1,13 +1,11 @@
 import React from 'react';
 
-import s from './dialogs.module.css'
+import style from './dialogs.module.css';
 
-const Dialogs = () => {
-  return (
-    <div className={s.profile}>
- Dialogs've been here
-    </div>
-  );
-};
+const Dialogs = () => (
+  <div className={style.profile}>
+    Dialogs ve been here
+  </div>
+);
 
 export default Dialogs;

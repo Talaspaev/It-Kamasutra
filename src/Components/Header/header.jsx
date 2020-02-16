@@ -1,15 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import s from './header.module.css';
+import style from './header.module.css';
 
-import logo from "./headerLogo.jpg";
+import logo from './headerLogo.jpg';
 
-const Header = () => {
-  return (
-    <div className={s.header}>
-      <img src={logo} alt="logo" />
-    </div>
-  );
-};
+const Header = () => (
+  <div className={style.header}>
+    <img src={logo} alt="logo" />
+  </div>
+);
 
 export default Header;
