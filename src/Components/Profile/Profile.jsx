@@ -3,11 +3,9 @@ import React from 'react';
 import logo from './ProfileLogo.jpg';
 import MyPosts from './MyPosts/myPosts';
 
-import s from './profile.module.css'
-
 const Profile = () => {
   return (
-    <div className={s.profile}>
+    <div >
       <div>
         <img src={logo} alt="logo" />
       </div>
