@@ -1,6 +1,6 @@
 import React from "react";
 
-import logo from "./2222.jpg";
+import logo from "./ProfileLogo.jpg";
 
 const Profile = () => {
   return (
