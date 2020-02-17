@@ -1,27 +1,17 @@
-import React from "react";
+import React from 'react';
 
-import logo from "./2222.jpg";
+import logo from './ProfileLogo.jpg';
 
-const Profile = () => {
-  return (
-    <div className='profile'>
-      <div>
-        <img src={logo} alt="logo" />
-      </div>
-      <div>ava+ description</div>
-      <div>
-        My posts
-        <div>
-          New posts
-          <div>
-            <div>post 1</div>
-            <div>post 1</div>
-          </div>
-          <div></div>
-        </div>
-      </div>
+import MyPosts from './MyPosts/myPosts';
+
+const Profile = () => (
+  <div>
+    <div>
+      <img src={logo} alt="logo" />
     </div>
-  );
-};
+    <div>ava+ description</div>
+    <MyPosts />
+  </div>
+);
 
 export default Profile;

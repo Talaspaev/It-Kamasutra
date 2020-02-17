@@ -1,0 +1,18 @@
+{
+    "extends":["airbnb"],
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+    "rules": {
+        "linebreak-style":"off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/button-has-type": [1, {
+            "button": true,
+            "submit": true,
+            "reset": true
+          }],
+          "react/prop-types": "off"
+      }
+}

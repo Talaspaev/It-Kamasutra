@@ -8,19 +8,7 @@
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
 }
-.header{
-  grid-area: h;
-  background: green;
-}
-.header img{
-  width: 20px;
- 
-}
-.nav{
-  grid-area: n;
-  background: burlywood;
-}
-.profile{
+.app-wrapper-contnent{
   grid-area: p;
   background: pink;
 }
