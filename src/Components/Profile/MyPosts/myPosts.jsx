@@ -2,7 +2,7 @@ import React from 'react';
 
 import Post from './Post/post';
 
-import I18Y from '../../../Constants/Core/constants';
+import I18Y from '../../../Core/constants';
 
 import style from './myPosts.module.css';
 
