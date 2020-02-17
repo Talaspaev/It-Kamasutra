@@ -13,7 +13,6 @@
             "submit": true,
             "reset": true
           }],
-          "react/prop-types": "off",
-          "react/destructuring-assignment": [0, "always", { "ignoreClassFields":true}]
+          "react/prop-types": "off"
       }
 }

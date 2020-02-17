@@ -1,23 +1,25 @@
 import React from 'react';
 
+import route from '../../route';
+
 import style from './nav.module.css';
 
 const NavBar = () => (
   <nav className={style.nav}>
     <div className={style.item}>
-      <a href="/profile">Profile</a>
+      <a href={route.profile}>Profile</a>
     </div>
     <div className={`${style.item} ${style.active}`}>
-      <a href="/dialogs">Message</a>
+      <a href={route.music}>Message</a>
     </div>
     <div className={style.item}>
-      <a href="/news">News</a>
+      <a href={route.news}>News</a>
     </div>
     <div className={style.item}>
-      <a href="/music">Music</a>
+      <a href={route.music}>Music</a>
     </div>
     <div className={style.item}>
-      <a href="/settings">Settings</a>
+      <a href={route.settings}>Settings</a>
     </div>
   </nav>
 );

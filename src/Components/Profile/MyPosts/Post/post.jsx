@@ -4,14 +4,17 @@ import style from './post.module.css';
 
 import logo from './post.jpg';
 
-const Post = (props) => (
-  <div className={style.item}>
-    <img src={logo} alt="logo" />
-    {props.message}
-    <div>
-      <span>like</span>
+const Post = (props) => {
+  const { message } = props;
+  return (
+    <div className={style.item}>
+      <img src={logo} alt="logo" />
+      {message}
+      <div>
+        <span>like</span>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Post;
