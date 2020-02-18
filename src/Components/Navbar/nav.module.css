@@ -2,9 +2,10 @@
     grid-area: n;
     background: burlywood;
   }
-  .item{
+  .item a{
     color:white;
+    text-decoration: none;
   }
-  .item.active{
-    color:goldenrod;
+  .item a.active{
+    color:red;
   }
