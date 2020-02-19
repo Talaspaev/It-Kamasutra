@@ -3,6 +3,3 @@
     flex-direction: row;
     justify-content: space-around;
 }
-.dialog,.message{
-    margin: 10px 10px;
-}
