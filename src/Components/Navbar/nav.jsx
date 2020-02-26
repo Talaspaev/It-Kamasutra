@@ -7,6 +7,7 @@ import style from './nav.module.css';
 
 const NavBar = () => {
   const Items = Object.values(NavItem);
+
   return (
     <nav className={style.nav}>
       <NavItemBlock context={Items} />
