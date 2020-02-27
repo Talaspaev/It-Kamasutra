@@ -1,6 +1,6 @@
 import React from 'react';
 
-import I18Y from '../../core/constants';
+import I18Y from '../../Core/constants';
 import GetItem from './GetItems/getItem';
 
 import style from './dialogs.module.css';
