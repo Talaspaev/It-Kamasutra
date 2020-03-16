@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from './getItem.module.css';
+import style from './getMessage.module.css';
 
 const getItem = (props) => {
   const { numbers } = props;
