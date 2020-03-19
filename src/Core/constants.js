@@ -6,5 +6,6 @@ const I18Y = {
   message: ['Lorem, ipsum dolor sit amet  ', ' praesentium tempore atque eveniet', 'architecto Placeat inventore officiis odit ipsa quibusdam', ' praesentium tempore atque eveniet', 'consectetur adipisicing elit. Officiis error'],
   name: ['Sergei', 'Andrey', 'Natalya', 'Igor', 'Egor'],
 };
+const dialogsData = [{ id: 1, name: 'Dymuch' }, { id: 2, name: 'Andrey' }, { id: 3, name: 'Natalya' }, { id: 4, name: 'Igor' }, { id: 5, name: 'Egor' }];
 
-export default I18Y;
+export { I18Y, dialogsData };
