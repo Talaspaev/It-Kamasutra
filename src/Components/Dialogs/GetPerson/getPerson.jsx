@@ -1,14 +1,13 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
 
-import style from './getPerson.module.css';
+import getElement from './GetElement/getElement';
 
 const GetPerson = (props) => {
   const { items } = props;
-  const listItems = Object.keys(items).map((elem) => <div><NavLink to={`/dialogs/${elem}`} className={style.item}>{items[elem].name}</NavLink></div>);
+  const listItems = Object.keys(items);
+  const result = getElement(listItems, items);
 
   return (
-    listItems
+    result
   );
 };
 

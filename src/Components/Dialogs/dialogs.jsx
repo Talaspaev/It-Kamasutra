@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { I18Y, dialogsData } from '../../core/constants';
 import GetPerson from './GetPerson/getPerson';
 import GetItem from './GetMessage/getMessage';
+
+import { I18Y, dialogsData } from '../../core/constants';
 
 import style from './dialogs.module.css';
 
