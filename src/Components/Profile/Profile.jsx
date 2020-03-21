@@ -1,15 +1,11 @@
 import React from 'react';
 
-import logo from './ProfileLogo.jpg';
-
 import MyPosts from './MyPosts/myPosts';
+import ProfileInfo from './ProfileInfo/profileInfo';
 
 const Profile = () => (
   <div>
-    <div>
-      <img src={logo} alt="logo" />
-    </div>
-    <div>ava+ description</div>
+    <ProfileInfo />
     <MyPosts />
   </div>
 );

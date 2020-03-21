@@ -2,9 +2,24 @@ const I18Y = {
   hi: 'Hello, my dear',
   qus: 'How are you?',
   ans: 'I am exhausted',
-  number: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-  message: ['Lorem, ipsum dolor sit amet  ', ' praesentium tempore atque eveniet', 'architecto Placeat inventore officiis odit ipsa quibusdam', ' praesentium tempore atque eveniet', 'consectetur adipisicing elit. Officiis error'],
-  name: ['Sergei', 'Andrey', 'Natalya', 'Igor', 'Egor'],
 };
+const Path = {
+  dialog: 'dialog',
+};
+const dialogsData = [
+  { id: 1, name: 'Dymuch' },
+  { id: 2, name: 'Andrey' },
+  { id: 3, name: 'Natalya' },
+  { id: 4, name: 'Igor' },
+  { id: 5, name: 'Egor' }];
 
-export default I18Y;
+const messagesData = [
+  { id: 1, name: 'Lorem, ipsum dolor sit amet  ' },
+  { id: 2, name: 'An praesentium tempore atque evenietdrey' },
+  { id: 3, name: 'architecto Placeat inventore officiis odit ipsa quibusdam' },
+  { id: 4, name: 'consectetur adipisicing elit. Officiis error' },
+  { id: 5, name: 'adipisicing elit. Officiis error' }];
+
+export {
+  I18Y, messagesData, dialogsData, Path,
+};
