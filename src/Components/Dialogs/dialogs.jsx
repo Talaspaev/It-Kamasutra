@@ -3,7 +3,7 @@ import React from 'react';
 import GetPerson from './GetPerson/getPerson';
 import GetItem from './GetMessage/getMessage';
 
-import { I18Y, dialogsData } from '../../core/constants';
+import { messagesData, dialogsData } from '../../core/constants';
 
 import style from './dialogs.module.css';
 
@@ -14,7 +14,7 @@ const Dialogs = () => (
       <GetPerson items={dialogsData} />
     </div>
     <div className={style.dialogsMessage}>
-      <GetItem items={I18Y.message} />
+      <GetItem items={messagesData} />
     </div>
   </div>
 );

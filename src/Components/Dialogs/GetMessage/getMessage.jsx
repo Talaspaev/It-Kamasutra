@@ -1,11 +1,16 @@
-import getElemen from './GetElement/getElement';
+import React from 'react';
+
+import style from './getMessage.module.css';
 
 const getItem = (props) => {
   const { items } = props;
-  const listItems = getElemen(items);
+  const itemsArray = Object.values(items);
+
+  const sd = ({ id, name }) => (<div key={id} className={style.item}>{name}</div>);
+  const RouteItem = itemsArray.map(sd);
 
   return (
-    listItems
+    RouteItem
   );
 };
 export default getItem;
