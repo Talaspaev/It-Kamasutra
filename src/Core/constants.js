@@ -3,8 +3,8 @@ const I18Y = {
   qus: 'How are you?',
   ans: 'I am exhausted',
 };
-const Path = {
-  dialog: 'dialog',
+const ROUTES = {
+  DIALOG: 'dialog',
 };
 const dialogsData = [
   { id: 1, name: 'Dymuch' },
@@ -21,5 +21,5 @@ const messagesData = [
   { id: 5, name: 'adipisicing elit. Officiis error' }];
 
 export {
-  I18Y, messagesData, dialogsData, Path,
+  I18Y, messagesData, dialogsData, ROUTES,
 };
