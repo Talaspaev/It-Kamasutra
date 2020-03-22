@@ -8,9 +8,13 @@ import NavItem from '../Components/Navbar/NavItem/navItem';
 
 import './App.css';
 
-const App = () => {
+
+const App = (props) => {
   const Items = Object.values(NavItem);
-  const itemRoute = ({ id, path, component }) => (<Route key={id} path={path} component={component} />);
+  const itemRoute = ({ id, path, component }) => {
+    const { state } = props;
+    return (<Route state={state.messageData} key={id} path={path} render={() => component(props)} />);
+  };
   const RouteItem = Items.map(itemRoute);
 
   return (
