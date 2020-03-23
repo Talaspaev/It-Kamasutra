@@ -10,7 +10,7 @@ const GetPerson = (props) => {
   const sd = ({ id, name }) => (<div key={id}><NavLink to={`${Path.dialog}/${id}`} className={style.item}>{name}</NavLink></div>);
   const RouteItem = itemsArray.map(sd);
 
-  return (
+return (
     RouteItem
   );
 };
