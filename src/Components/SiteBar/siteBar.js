@@ -3,7 +3,7 @@ import React from 'react';
 import style from './siteBar.module.css';
 
 const SiteBar = (props) => {
-  const { friends } = props.state
+  const { friends } = props.state;
   const st = Object.values(friends);
   const sts = ({ id, name, src }) => ((
     <div key={id} className={style.container}>

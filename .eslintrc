@@ -14,7 +14,7 @@
             "submit": true,
             "reset": true
           }],
-          "react/prop-types": "off"
-      },
-       "prefer-destructuring": ["error", {"object": true, "array": false}]
+          "react/prop-types":["off"] ,
+          "react/destructuring-assignment": [0, "never"]
+      }
 }
