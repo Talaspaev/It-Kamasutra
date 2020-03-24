@@ -2,7 +2,7 @@ import React from 'react';
 
 import style from './header.module.css';
 
-import logo from './headerLogo.jpg';
+import logo from './headerLogo.svg';
 
 const Header = () => (
   <div className={style.header}>

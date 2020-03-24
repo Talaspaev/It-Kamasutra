@@ -1,11 +1,17 @@
 .nav{
-    grid-area: n;
-    background: burlywood;
+  display: flex;
+  grid-area: n;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background: burlywood;
+  padding: 10px 20px;
+  background: #101321;
   }
   .item a{
     color:white;
     text-decoration: none;
   }
   .item a.active{
-    color:red;
+    color:#94ae3f;
   }
