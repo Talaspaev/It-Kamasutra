@@ -13,7 +13,7 @@ const App = (props) => {
   const Items = Object.values(NavItem);
   const itemRoute = ({ id, path, component }) => {
     const { state } = props;
-    return (<Route state={state.messageData} key={id} path={path} render={() => component(props)} />);
+    return (<Route state={state.messageData} key={id} exact path={path} render={() => component(props)} />);
   };
   const RouteItem = Items.map(itemRoute);
 
