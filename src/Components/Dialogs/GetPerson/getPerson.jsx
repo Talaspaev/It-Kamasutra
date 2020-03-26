@@ -1,10 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+
+import ROUTES from '../../../constants';
+
 import style from './getPerson.module.css';
 
 const GetPerson = (props) => {
-  const { items, ROUTES } = props;
+  const { items } = props;
   const itemsArray = Object.values(items);
 
   const errorFunc = () => {
