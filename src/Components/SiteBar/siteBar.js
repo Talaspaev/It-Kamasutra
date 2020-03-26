@@ -4,15 +4,15 @@ import style from './siteBar.module.css';
 
 const SiteBar = (props) => {
   const { friends } = props.state;
-  const st = Object.values(friends);
-  const sts = ({ id, name, src }) => ((
+  const friendsArray = Object.values(friends);
+  const routeWrapper = ({ id, name, src }) => ((
     <div key={id} className={style.container}>
       <img className={style.img} src={src} alt="alt" />
       <span>{name}</span>
     </div>
   ));
 
-  const route = st.map(sts);
+  const route = friendsArray.map(routeWrapper);
 
   return (
     <div className={style.siteBar}>

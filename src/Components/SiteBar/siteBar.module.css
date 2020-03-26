@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    height: 450px;
     grid-area: s;
     background: #101321;
     color: white;

@@ -2,22 +2,21 @@ import React from 'react';
 
 import Post from './Post/post';
 
+import I18Y from '../../../constants';
+
 import style from './myPosts.module.css';
 
-const MyPosts = (props) => {
-  const { state } = props;
-  return (
-    <div>
+const MyPosts = () => (
+  <div>
       My posts
-      <div />
-      <textarea />
-      <button type="button">Add post</button>
-      <div className={style.posts}>
-        <Post message={state.qus} />
-        <Post message={state.ans} />
-      </div>
+    <div />
+    <textarea />
+    <button type="button">Add post</button>
+    <div className={style.posts}>
+      <Post message={I18Y.qus} />
+      <Post message={I18Y.ans} />
     </div>
-  );
-};
+  </div>
+);
 
 export default MyPosts;
