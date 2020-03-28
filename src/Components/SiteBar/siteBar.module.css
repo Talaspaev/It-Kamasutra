@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    width: 70px;
+    flex-direction: column;
+    align-items: center;
+}
+.img{
+    width: 40px;
+    height: 40px; 
+    border-radius: 50px;
+    overflow: hidden;
+    margin-bottom: 7px;
+}
+.siteBar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 450px;
+    grid-area: s;
+    background: #101321;
+    color: white;
+  }
+  .wrapper{
+      display: flex;
+  }

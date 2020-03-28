@@ -2,13 +2,13 @@ import React from 'react';
 
 import Post from './Post/post';
 
-import { I18Y } from '../../../core/constants';
+import I18Y from '../../../constants';
 
 import style from './myPosts.module.css';
 
 const MyPosts = () => (
   <div>
-    My posts
+      My posts
     <div />
     <textarea />
     <button type="button">Add post</button>
