@@ -5,11 +5,11 @@ import style from './post.module.css';
 import logo from './post.jpg';
 
 const Post = (props) => {
-  const { messages } = props;
-  const g = Object.values(messages);
+  const { profileData } = props.messages;
+  const PostData = Object.values(profileData);
 
-  const a = ({ id, like, message }) => (
-    <div className={style.item} key={id}>
+  const PostFunc = ({ id, like, message }) => (
+    <div className={style.item} key={`${id}`}>
       <img src={logo} alt="logo" />
       <span>
         like:
@@ -18,9 +18,9 @@ const Post = (props) => {
       <p>{message}</p>
     </div>
   );
-  const b = g.map(a);
+  const PostContent = PostData.map(PostFunc);
   return (
-    b
+    PostContent
   );
 };
 

@@ -1,3 +1,6 @@
+/* eslint-disable import/no-cycle */
+import renderFunc from '../render';
+
 const state = {
   dialogsPages: {
     dialogsData: [
@@ -39,11 +42,12 @@ const state = {
 
 const textAreaFunc = (NewPost) => {
   const PostData = {
-    id: 0,
-    like: 0,
+    id: 4,
+    like: 5,
     message: NewPost,
   };
   state.ProfilePages.profileData.push(PostData);
+  renderFunc(state);
 };
 
 export { state, textAreaFunc };
