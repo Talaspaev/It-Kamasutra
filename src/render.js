@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 
 import App from './App/App';
 
-import { textAreaFunc } from './redux/state';
+import { textAreaFunc, updateTextaAreaFunc } from './redux/state';
 
 const renderFunc = (state) => {
-  ReactDOM.render(<App state={state} Func={textAreaFunc} />, document.getElementById('root'));
+  ReactDOM.render(<App state={state} textAreaFunc={textAreaFunc} updateTextaAreaFunc={updateTextaAreaFunc} />, document.getElementById('root'));
 };
 export default renderFunc;

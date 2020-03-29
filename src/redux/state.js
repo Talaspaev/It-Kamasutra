@@ -32,6 +32,7 @@ const state = {
         id: 3, like: 8, message: 'adipisicing elit. Officiis error',
       },
     ],
+    textArea: 'Hi',
   },
 
   friends: [
@@ -40,14 +41,18 @@ const state = {
     { id: 3, name: 'Adil', src: 'https://img.gazeta.ru/files3/784/11560784/skrskr2-pic905-895x505-4108.jpg' }],
 };
 
-const textAreaFunc = (NewPost) => {
+const textAreaFunc = (NewPost, id) => {
   const PostData = {
-    id: 4,
+    id,
     like: 5,
     message: NewPost,
   };
   state.ProfilePages.profileData.push(PostData);
   renderFunc(state);
 };
+const updateTextaAreaFunc = (NewText) => {
+  state.ProfilePages.textArea = NewText;
+  renderFunc(state);
+};
 
-export { state, textAreaFunc };
+export { state, textAreaFunc, updateTextaAreaFunc };
