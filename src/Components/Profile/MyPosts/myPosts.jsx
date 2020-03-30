@@ -5,22 +5,25 @@ import Post from './Post/post';
 import style from './myPosts.module.css';
 
 const MyPosts = (props) => {
-  const { updateTextaAreaFunc, textAreaFunc } = props.props;
-  const createRefFortext = React.createRef();
+  const { areaFunc, updateArea } = props.props;
+  const refArea = React.createRef();
+
   const addPost = () => {
-    const text = createRefFortext.current.value;
-    textAreaFunc(text);
-    updateTextaAreaFunc('');
+    const text = refArea.current.value;
+    areaFunc(text);
+    updateArea('');
   };
+
   const handlerPost = () => {
-    const text = createRefFortext.current.value;
-    updateTextaAreaFunc(text);
+    const text = refArea.current.value;
+    updateArea(text);
   };
+
   return (
     <div>
       My posts
       <div />
-      <textarea onChange={handlerPost} value={props.props.state.ProfilePages.textArea} ref={createRefFortext} />
+      <textarea onChange={handlerPost} value={props.props.state.ProfilePages.textArea} ref={refArea} />
       <button onClick={addPost} type="button">Add post</button>
       <div className={style.posts}>
         <Post messages={props.props.state.ProfilePages} />

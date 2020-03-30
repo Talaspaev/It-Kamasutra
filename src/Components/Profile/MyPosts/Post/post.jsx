@@ -6,9 +6,9 @@ import logo from './post.jpg';
 
 const Post = (props) => {
   const { profileData } = props.messages;
-  const PostData = Object.values(profileData);
+  const postArray = Object.values(profileData);
 
-  const PostFunc = ({ id, like, message }) => (
+  const postFunc = ({ id, like, message }) => (
     <div className={style.item} key={`${id}`}>
       <img src={logo} alt="logo" />
       <span>
@@ -18,9 +18,9 @@ const Post = (props) => {
       <p>{message}</p>
     </div>
   );
-  const PostContent = PostData.map(PostFunc);
+  const postContent = postArray.map(postFunc);
   return (
-    PostContent
+    postContent
   );
 };
 
