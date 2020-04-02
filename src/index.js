@@ -1,11 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { state } from './redux/state';
+import renderFunc from './render';
 
-import App from './App/App';
-
-import state from './redux/state';
-
-import './index.css';
-
-
-ReactDOM.render(<App state={state} />, document.getElementById('root'));
+renderFunc(state);

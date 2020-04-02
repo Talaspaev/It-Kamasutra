@@ -7,4 +7,4 @@ const ROUTES = {
   DIALOG: 'dialog',
 };
 
-export default { I18Y, ROUTES };
+export { I18Y, ROUTES };

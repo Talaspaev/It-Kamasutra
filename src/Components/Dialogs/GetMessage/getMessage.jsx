@@ -6,7 +6,7 @@ const getItem = (props) => {
   const { items } = props;
   const itemsArray = Object.values(items);
 
-  const sd = ({ id, name }) => (<div key={id} className={style.item}>{name}</div>);
+  const sd = ({ id, message }) => (<div key={id} className={style.item}>{message}</div>);
   const RouteItem = itemsArray.map(sd);
 
   return (

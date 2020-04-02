@@ -1,19 +1,58 @@
+/* eslint-disable import/no-cycle */
+import renderFunc from '../render';
+
 const state = {
-  messagesData: [
-    { id: 1, name: 'Lorem, ipsum dolor sit amet  ' },
-    { id: 2, name: 'An praesentium tempore atque evenietdrey' },
-    { id: 3, name: 'architecto Placeat inventore officiis odit ipsa quibusdam' },
-    { id: 4, name: 'consectetur adipisicing elit. Officiis error' },
-    { id: 5, name: 'adipisicing elit. Officiis error' }],
-  dialogsData: [
-    { id: 1, name: 'Dymuch', src: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Dmitry_Medvedev_2016.jpg' },
-    { id: 2, name: 'Andrey', src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ3ouc4dEwInAn-fzd0par_bEkPsHUxzx4J-nXg1sk-SC4ABqAt' },
-    { id: 3, name: 'Natalya', src: 'https://images11.cosmopolitan.ru/upload/img_cache/7b3/7b3b3da698f08bee6e9e7402053f6df5_ce_750x497x0x129_fitted_740x0.jpg' },
-    { id: 4, name: 'Igor', src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRNtwQUeVJ4vImAb6HiD2qFiEXchzJJKPDWUU96D33THFtBskw1' },
-    { id: 5, name: 'Adil', src: 'https://img.gazeta.ru/files3/784/11560784/skrskr2-pic905-895x505-4108.jpg' }],
+  dialogsPages: {
+    dialogsData: [
+      {
+        id: 1, name: 'Dymuch', message: 'Lorem, ipsum dolor sit amet', src: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Dmitry_Medvedev_2016.jpg',
+      },
+      {
+        id: 2, name: 'Andrey', message: 'An praesentium tempore atque evenietdrey', src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ3ouc4dEwInAn-fzd0par_bEkPsHUxzx4J-nXg1sk-SC4ABqAt',
+      },
+      {
+        id: 3, name: 'Natalya', message: 'consectetur adipisicing elit. Officiis error', src: 'https://images11.cosmopolitan.ru/upload/img_cache/7b3/7b3b3da698f08bee6e9e7402053f6df5_ce_750x497x0x129_fitted_740x0.jpg',
+      },
+      {
+        id: 4, name: 'Igor', message: 'architecto Placeat inventore officiis odit ipsa quibusdam', src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRNtwQUeVJ4vImAb6HiD2qFiEXchzJJKPDWUU96D33THFtBskw1',
+      },
+      {
+        id: 5, name: 'Adil', message: 'adipisicing elit. Officiis error', src: 'https://img.gazeta.ru/files3/784/11560784/skrskr2-pic905-895x505-4108.jpg',
+      }],
+  },
+  ProfilePages: {
+    profileData: [
+      {
+        id: 1, like: 13, message: 'HI EE',
+      },
+      {
+        id: 2, like: 11, message: 'whar are you doing',
+      },
+      {
+        id: 3, like: 8, message: 'adipisicing elit. Officiis error',
+      },
+    ],
+    textArea: 'Hi',
+  },
+
   friends: [
     { id: 1, name: 'Dymuch', src: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Dmitry_Medvedev_2016.jpg' },
     { id: 2, name: 'Natalya', src: 'https://images11.cosmopolitan.ru/upload/img_cache/7b3/7b3b3da698f08bee6e9e7402053f6df5_ce_750x497x0x129_fitted_740x0.jpg' },
     { id: 3, name: 'Adil', src: 'https://img.gazeta.ru/files3/784/11560784/skrskr2-pic905-895x505-4108.jpg' }],
 };
-export default state;
+
+const areaFunc = (NewPost, id) => {
+  const postData = {
+    id,
+    like: 5,
+    message: NewPost,
+  };
+  state.ProfilePages.profileData.push(postData);
+  renderFunc(state);
+};
+const updateArea = (NewText) => {
+  state.ProfilePages.textArea = NewText;
+  renderFunc(state);
+};
+
+export { state, areaFunc, updateArea };

@@ -14,7 +14,8 @@
             "submit": true,
             "reset": true
           }],
-          "react/prop-types":[1] ,
-          "react/destructuring-assignment": [0, "never"]
+          "react/prop-types":[0] ,
+          "react/destructuring-assignment": [0, "never"],
+          "no-alert": "off"
       }
 }

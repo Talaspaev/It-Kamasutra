@@ -7,14 +7,14 @@ import style from './dialogs.module.css';
 
 
 const Dialogs = (props) => {
-  const { dialogsData, messagesData } = props.state;
+  const { dialogsData } = props.state.dialogsPages;
   return (
     <div className={style.dialogs}>
       <div className={style.dialogsItems}>
         <GetPerson items={dialogsData} />
       </div>
       <div className={style.dialogsMessage}>
-        <GetItem items={messagesData} />
+        <GetItem items={dialogsData} />
       </div>
     </div>
   );
