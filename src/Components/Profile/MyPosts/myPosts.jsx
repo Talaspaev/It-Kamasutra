@@ -5,16 +5,16 @@ import Post from './Post/post';
 import style from './myPosts.module.css';
 
 const MyPosts = (props) => {
-  const { areaFunc, updateArea } = props.props;
+  const { dispatch } = props.props;
   const refArea = React.createRef();
 
   const addPost = () => {
-    areaFunc();
+    dispatch({ type: 'ADD-POST' });
   };
 
   const handlerPost = () => {
     const text = refArea.current.value;
-    updateArea(text);
+    dispatch({ type: 'UPDATE-POST', NewText: text });
   };
 
   return (

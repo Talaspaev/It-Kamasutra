@@ -9,8 +9,7 @@ const renderFunc = (state) => {
   ReactDOM.render(
     <App
       state={state}
-      areaFunc={store.areaFunc.bind(store)}
-      updateArea={store.updateArea.bind(store)}
+      dispatch={store.dispatch.bind(store)}
     />,
     document.getElementById('root'),
   );
