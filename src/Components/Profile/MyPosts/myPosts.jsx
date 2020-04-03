@@ -9,9 +9,7 @@ const MyPosts = (props) => {
   const refArea = React.createRef();
 
   const addPost = () => {
-    const text = refArea.current.value;
-    areaFunc(text);
-    updateArea('');
+    areaFunc();
   };
 
   const handlerPost = () => {
