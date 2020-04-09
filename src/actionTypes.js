@@ -1,0 +1,6 @@
+const ACTION_TYPES = {
+  ADD_POST: 'ADD_POST',
+  UPDATE_POST: 'UPDATE_POST',
+};
+
+export default ACTION_TYPES;
