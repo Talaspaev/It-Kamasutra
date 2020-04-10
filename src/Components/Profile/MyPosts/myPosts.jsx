@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ACTION_TYPES from '../../../actionTypes';
 import Post from './Post/post';
 
 import style from './myPosts.module.css';
@@ -9,12 +10,14 @@ const MyPosts = (props) => {
   const refArea = React.createRef();
 
   const addPost = () => {
-    dispatch({ type: 'ADD-POST' });
+    const action = { type: ACTION_TYPES.ADD_POST };
+    dispatch(action);
   };
 
   const handlerPost = () => {
     const text = refArea.current.value;
-    dispatch({ type: 'UPDATE-POST', NewText: text });
+    const action = { type: ACTION_TYPES.UPDATE_POST, NewText: text };
+    dispatch(action);
   };
 
   return (
