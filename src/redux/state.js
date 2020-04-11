@@ -1,3 +1,5 @@
+import ACTION_TYPES from '../actionTypes';
+
 const store = {
   _state: {
     dialogsPages: {
@@ -61,10 +63,10 @@ const store = {
   },
   dispatch(action) {
     switch (action.type) {
-      case 'ADD-POST':
+      case ACTION_TYPES.ADD_POST:
         this._areaFunc();
         break;
-      case 'UPDATE-POST':
+      case ACTION_TYPES.UPDATE_POST:
         this._updateArea(action.NewText);
         break;
       default: this._renderFunc();
