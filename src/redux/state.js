@@ -57,8 +57,8 @@ const store = {
     this._state.ProfilePages.textArea = '';
     this._renderFunc(this._state);
   },
-  _updateArea(NewText) {
-    this._state.ProfilePages.textArea = NewText;
+  _updateArea(payload) {
+    this._state.ProfilePages.textArea = payload;
     this._renderFunc(this._state);
   },
   dispatch(action) {
@@ -67,7 +67,7 @@ const store = {
         this._areaFunc();
         break;
       case ACTION_TYPES.UPDATE_POST:
-        this._updateArea(action.NewText);
+        this._updateArea(action.payload);
         break;
       default: this._renderFunc();
     }

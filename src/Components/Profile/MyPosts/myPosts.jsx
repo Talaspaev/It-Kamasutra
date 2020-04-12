@@ -16,7 +16,7 @@ const MyPosts = (props) => {
 
   const handlerPost = () => {
     const text = refArea.current.value;
-    const action = { type: ACTION_TYPES.UPDATE_POST, NewText: text };
+    const action = { type: ACTION_TYPES.UPDATE_POST, payload: text };
     dispatch(action);
   };
 
