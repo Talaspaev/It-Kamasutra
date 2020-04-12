@@ -1,3 +1,5 @@
+import ACTION_TYPES from '../actionTypes';
+
 const store = {
   _state: {
     dialogsPages: {
@@ -38,11 +40,14 @@ const store = {
       { id: 2, name: 'Natalya', src: 'https://images11.cosmopolitan.ru/upload/img_cache/7b3/7b3b3da698f08bee6e9e7402053f6df5_ce_750x497x0x129_fitted_740x0.jpg' },
       { id: 3, name: 'Adil', src: 'https://img.gazeta.ru/files3/784/11560784/skrskr2-pic905-895x505-4108.jpg' }],
   },
+  _renderFunc() { 'nothing'; },
+  subscribe(observer) {
+    this._renderFunc = observer;
+  },
   getState() {
     return this._state;
   },
-  _renderFunc() { 'nothing'; },
-  areaFunc() {
+  _areaFunc() {
     const postData = {
       id: 0,
       like: 5,
@@ -52,13 +57,22 @@ const store = {
     this._state.ProfilePages.textArea = '';
     this._renderFunc(this._state);
   },
-  updateArea(NewText) {
-    this._state.ProfilePages.textArea = NewText;
+  _updateArea(payload) {
+    this._state.ProfilePages.textArea = payload;
     this._renderFunc(this._state);
   },
-  subscribe(observer) {
-    this._renderFunc = observer;
+  dispatch(action) {
+    switch (action.type) {
+      case ACTION_TYPES.ADD_POST:
+        this._areaFunc();
+        break;
+      case ACTION_TYPES.UPDATE_POST:
+        this._updateArea(action.payload);
+        break;
+      default: this._renderFunc();
+    }
   },
+
 };
 
 export default store;

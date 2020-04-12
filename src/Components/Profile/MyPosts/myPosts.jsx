@@ -1,20 +1,23 @@
 import React from 'react';
 
+import ACTION_TYPES from '../../../actionTypes';
 import Post from './Post/post';
 
 import style from './myPosts.module.css';
 
 const MyPosts = (props) => {
-  const { areaFunc, updateArea } = props.props;
+  const { dispatch } = props.props;
   const refArea = React.createRef();
 
   const addPost = () => {
-    areaFunc();
+    const action = { type: ACTION_TYPES.ADD_POST };
+    dispatch(action);
   };
 
   const handlerPost = () => {
     const text = refArea.current.value;
-    updateArea(text);
+    const action = { type: ACTION_TYPES.UPDATE_POST, payload: text };
+    dispatch(action);
   };
 
   return (
