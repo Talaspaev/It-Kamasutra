@@ -75,4 +75,6 @@ const store = {
 
 };
 
-export default store;
+const actionCreater = (typeOf, text) => ({ type: typeOf, payload: text });
+
+export { store, actionCreater };
