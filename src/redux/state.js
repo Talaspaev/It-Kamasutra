@@ -1,4 +1,5 @@
 import ACTION_TYPES from '../actionTypes';
+import actionCreator from '../actionCreator';
 
 const store = {
   _state: {
@@ -100,6 +101,6 @@ const store = {
 
 };
 
-const actionCreater = (typeOf, text) => ({ type: typeOf, payload: text });
+const newTextActionCreator = (typeOf, text) => actionCreator(typeOf, text);
 
-export { store, actionCreater };
+export { store, newTextActionCreator };

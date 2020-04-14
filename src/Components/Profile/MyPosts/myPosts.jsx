@@ -1,24 +1,23 @@
 import React from 'react';
 
-import { actionCreater } from '../../../redux/state';
+import { newTextActionCreator } from '../../../redux/state';
 
 import ACTION_TYPES from '../../../actionTypes';
 import Post from './Post/post';
 
 import style from './myPosts.module.css';
 
-
 const MyPosts = (props) => {
   const { dispatch } = props.props;
   const refArea = React.createRef();
 
   const addPost = () => {
-    dispatch(actionCreater(ACTION_TYPES.ADD_POST, null));
+    dispatch(newTextActionCreator(ACTION_TYPES.ADD_POST, null));
   };
 
   const handlerPost = () => {
     const text = refArea.current.value;
-    dispatch(actionCreater(ACTION_TYPES.UPDATE_POST, text));
+    dispatch(newTextActionCreator(ACTION_TYPES.UPDATE_POST, text));
   };
 
   return (
