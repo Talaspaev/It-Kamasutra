@@ -101,6 +101,11 @@ const store = {
 
 };
 
-const newTextActionCreator = (typeOf, text) => actionCreator(typeOf, text);
+const addPostActionCreator = () => actionCreator(ACTION_TYPES.ADD_POST);
+const updatePostActionCreator = (text) => actionCreator(ACTION_TYPES.UPDATE_POST, text);
+const addMessageActionCreator = () => actionCreator(ACTION_TYPES.ADD_NEW_MESSAGE);
+const updateMessageActionCreator = (text) => actionCreator(ACTION_TYPES.UPDATE_NEW_MESSAGE, text);
 
-export { store, newTextActionCreator };
+export {
+  store, addPostActionCreator, updatePostActionCreator, addMessageActionCreator, updateMessageActionCreator,
+};

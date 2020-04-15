@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { newTextActionCreator } from '../../redux/state';
-import ACTION_TYPES from '../../actionTypes';
+import { addMessageActionCreator, updateMessageActionCreator } from '../../redux/state';
 import { I18Y } from '../../constants';
 
 import GetPerson from './GetPerson/getPerson';
@@ -15,12 +14,12 @@ const Dialogs = (props) => {
   const { dialogsData } = props.state.dialogsPages;
 
   const onAddNewMessage = () => {
-    dispatch(newTextActionCreator(ACTION_TYPES.ADD_NEW_MESSAGE, null));
+    dispatch(addMessageActionCreator());
   };
 
   const onChangeNewMessage = (e) => {
     const text = e.target.value;
-    dispatch(newTextActionCreator(ACTION_TYPES.UPDATE_NEW_MESSAGE, text));
+    dispatch(updateMessageActionCreator(text));
   };
 
   return (

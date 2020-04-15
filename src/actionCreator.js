@@ -1,3 +1,3 @@
-const actionCreator = (typeOf, text) => ({ type: typeOf, payload: text });
+const actionCreator = (type, text) => (text ? { type, payload: text } : { type });
 
 export default actionCreator;
