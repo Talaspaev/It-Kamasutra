@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { newTextActionCreator } from '../../../redux/state';
-
 import ACTION_TYPES from '../../../actionTypes';
+
 import Post from './Post/post';
 
 import style from './myPosts.module.css';
