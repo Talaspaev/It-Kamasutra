@@ -24,7 +24,8 @@
           "allowArrowFunctions": true,
           "allowFunctions": true,
           "allowBind": true
-        }]
+        }],
+        "no-param-reassign": [2, { "props": false }]
         
     }
 }
