@@ -1,6 +1,7 @@
 import React from 'react';
 
-import ACTION_TYPES from '../../../actionTypes';
+import { addPostActionCreator, updatePostActionCreator } from '../../../redux/state';
+
 import Post from './Post/post';
 
 import style from './myPosts.module.css';
@@ -10,14 +11,12 @@ const MyPosts = (props) => {
   const refArea = React.createRef();
 
   const addPost = () => {
-    const action = { type: ACTION_TYPES.ADD_POST };
-    dispatch(action);
+    dispatch(addPostActionCreator());
   };
 
   const handlerPost = () => {
     const text = refArea.current.value;
-    const action = { type: ACTION_TYPES.UPDATE_POST, payload: text };
-    dispatch(action);
+    dispatch(updatePostActionCreator(text));
   };
 
   return (

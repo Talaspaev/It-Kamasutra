@@ -1,4 +1,5 @@
 import ACTION_TYPES from '../actionTypes';
+import actionCreator from '../actionCreator';
 
 const store = {
   _state: {
@@ -19,6 +20,7 @@ const store = {
         {
           id: 5, name: 'Adil', message: 'adipisicing elit. Officiis error', src: 'https://img.gazeta.ru/files3/784/11560784/skrskr2-pic905-895x505-4108.jpg',
         }],
+      newMessage: 'Say hi to Scriptone',
     },
     ProfilePages: {
       profileData: [
@@ -61,6 +63,24 @@ const store = {
     this._state.ProfilePages.textArea = payload;
     this._renderFunc(this._state);
   },
+
+  _addNewMessage() {
+    const messageData = {
+      id: 5,
+      name: 'Adil',
+      message: this._state.dialogsPages.newMessage,
+      src: 'https://img.gazeta.ru/files3/784/11560784/skrskr2-pic905-895x505-4108.jpg',
+
+    };
+    this._state.dialogsPages.dialogsData.push(messageData);
+    this._state.dialogsPages.newMessage = '';
+    this._renderFunc(this._state);
+  },
+  _updateNewMessage(payload) {
+    this._state.dialogsPages.newMessage = payload;
+    this._renderFunc(this._state);
+  },
+
   dispatch(action) {
     switch (action.type) {
       case ACTION_TYPES.ADD_POST:
@@ -69,10 +89,23 @@ const store = {
       case ACTION_TYPES.UPDATE_POST:
         this._updateArea(action.payload);
         break;
+      case ACTION_TYPES.ADD_NEW_MESSAGE:
+        this._addNewMessage();
+        break;
+      case ACTION_TYPES.UPDATE_NEW_MESSAGE:
+        this._updateNewMessage(action.payload);
+        break;
       default: this._renderFunc();
     }
   },
 
 };
 
-export default store;
+const addPostActionCreator = () => actionCreator(ACTION_TYPES.ADD_POST);
+const updatePostActionCreator = (text) => actionCreator(ACTION_TYPES.UPDATE_POST, text);
+const addMessageActionCreator = () => actionCreator(ACTION_TYPES.ADD_NEW_MESSAGE);
+const updateMessageActionCreator = (text) => actionCreator(ACTION_TYPES.UPDATE_NEW_MESSAGE, text);
+
+export {
+  store, addPostActionCreator, updatePostActionCreator, addMessageActionCreator, updateMessageActionCreator,
+};
