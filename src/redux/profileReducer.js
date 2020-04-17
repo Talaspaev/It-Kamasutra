@@ -23,7 +23,7 @@ const profileReducer = (state = initialState, action) => {
         like: 5,
         message: state.textArea,
       };
-      state.profileData.push(postData);
+      state.profileData.unshift(postData);
       state.textArea = '';
       return state;
     }
