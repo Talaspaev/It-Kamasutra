@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { store } from './redux/state';
+import { store } from './redux/redux-state';
 import App from './App/App';
 
 const renderFunc = (state) => {
@@ -15,6 +15,9 @@ const renderFunc = (state) => {
 };
 
 renderFunc(store.getState());
-store.subscribe(renderFunc);
+store.subscribe(() => {
+  const state = store.getState();
+  renderFunc(state);
+});
 
 export default renderFunc;
