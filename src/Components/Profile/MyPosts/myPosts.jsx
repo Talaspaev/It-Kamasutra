@@ -21,10 +21,10 @@ const MyPosts = (props) => {
     <div>
       My posts
       <div />
-      <textarea onChange={handlerPostChange} value={state.ProfilePages.textArea} ref={refArea} />
+      <textarea onChange={handlerPostChange} value={state.textArea} ref={refArea} />
       <button onClick={addPostChange} type="button">Add post</button>
       <div className={style.posts}>
-        <Post messages={state.ProfilePages} />
+        <Post messages={state} />
       </div>
     </div>
   );

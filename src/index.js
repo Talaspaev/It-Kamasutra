@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 
 import { store } from './redux/redux-state';
 import App from './App/App';
+import StoreConext from './storeContext';
 
-const renderFunc = (state) => {
+const renderFunc = () => {
   ReactDOM.render(
-    <App
-      state={state}
-      dispatch={store.dispatch.bind(store)}
-    />,
+    <StoreConext.Provider value={store}>
+      <App />
+    </StoreConext.Provider>,
     document.getElementById('root'),
   );
 };

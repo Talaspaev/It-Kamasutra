@@ -1,22 +1,27 @@
 import React from 'react';
 
 import { addPostActionCreator, updatePostActionCreator } from '../../../redux/state';
+import StoreConext from '../../../storeContext';
+
 import MyPosts from './myPosts';
 
-const MyPostsContainer = (props) => {
-  const { dispatch } = props.store;
+const MyPostsContainer = () => (
+  <StoreConext.Consumer>
+    {
+      (store) => {
+        const addPost = () => {
+          store.dispatch(addPostActionCreator());
+        };
+        const handlerPost = (text) => {
+          store.dispatch(updatePostActionCreator(text));
+        };
+        return (
+          <MyPosts addPost={addPost} handlerPost={handlerPost} state={store.getState().ProfilePages} />
+        );
+      }
+    }
 
-  const addPost = () => {
-    dispatch(addPostActionCreator());
-  };
-
-  const handlerPost = (text) => {
-    dispatch(updatePostActionCreator(text));
-  };
-
-  return (
-    <MyPosts addPost={addPost} handlerPost={handlerPost} state={props.store.state} />
-  );
-};
+  </StoreConext.Consumer>
+);
 
 export default MyPostsContainer;
