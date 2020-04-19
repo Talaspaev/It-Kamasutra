@@ -5,7 +5,7 @@ import Post from './Post/post';
 import style from './myPosts.module.css';
 
 const MyPosts = (props) => {
-  const { addPost, ProfilePages, handlerPost } = props;
+  const { addPost, profilePages, handlerPost } = props;
   const refArea = React.createRef();
 
   const addPostChange = () => {
@@ -21,10 +21,10 @@ const MyPosts = (props) => {
     <div>
       My posts
       <div />
-      <textarea onChange={handlerPostChange} value={ProfilePages.textArea} ref={refArea} />
+      <textarea onChange={handlerPostChange} value={profilePages.textArea} ref={refArea} />
       <button onClick={addPostChange} type="button">Add post</button>
       <div className={style.posts}>
-        <Post messages={ProfilePages} />
+        <Post messages={profilePages} />
       </div>
     </div>
   );

@@ -1,0 +1,27 @@
+.dialogs{
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+}
+.dialogsMessage{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.textAreaWrapper{
+    height: 363px;
+    width: 375px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.textAreaWrapper >textarea{
+    width: 100%;
+    height: 100%;
+}
+.img{
+    height: 60px;
+    width: 60px;
+    border:1px solid peru;
+    border-radius: 60px;
+}

@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
-import { addPostActionCreator, updatePostActionCreator } from '../../../redux/state';
+import { addPostActionCreator, updatePostActionCreator } from '../../../redux/redux-state';
 
 import MyPosts from './myPosts';
 
-const mapStateToProps = (state) => ({ ProfilePages: state.ProfilePages });
+const mapStateToProps = (state) => ({ profilePages: state.profilePages });
 
 const dispatchStateToProps = (dispatch) => ({
   addPost: () => {

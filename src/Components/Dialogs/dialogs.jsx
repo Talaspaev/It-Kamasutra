@@ -9,7 +9,6 @@ import style from './dialogs.module.css';
 
 
 const Dialogs = (props) => {
-  debugger;
   const { dialogsPages, AddNewMessage, ChangeNewMessage } = props;
   const { dialogsData } = dialogsPages;
 
