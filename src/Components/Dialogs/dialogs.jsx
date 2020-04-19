@@ -9,8 +9,9 @@ import style from './dialogs.module.css';
 
 
 const Dialogs = (props) => {
-  const { state, AddNewMessage, ChangeNewMessage } = props;
-  const { dialogsData } = state;
+  debugger;
+  const { dialogsPages, AddNewMessage, ChangeNewMessage } = props;
+  const { dialogsData } = dialogsPages;
 
   const onAddNewMessage = () => {
     AddNewMessage();
@@ -24,7 +25,7 @@ const Dialogs = (props) => {
   return (
     <div className={style.dialogs}>
       <div className={style.textAreaWrapper}>
-        <textarea onChange={onChangeNewMessage} value={state.newMessage} />
+        <textarea onChange={onChangeNewMessage} value={dialogsPages.newMessage} />
         <button type="button" onClick={onAddNewMessage}>{I18Y.btn}</button>
       </div>
       <div className={style.dialogsItems}>

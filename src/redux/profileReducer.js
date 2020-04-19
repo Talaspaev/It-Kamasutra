@@ -23,13 +23,16 @@ const profileReducer = (state = initialState, action) => {
         like: 5,
         message: state.textArea,
       };
-      state.profileData.unshift(postData);
-      state.textArea = '';
-      return state;
+      const stateCopy = { ...state };
+      stateCopy.profileData = [...state.profileData];
+      stateCopy.profileData.unshift(postData);
+      stateCopy.textArea = '';
+      return stateCopy;
     }
     case ACTION_TYPES.UPDATE_POST: {
-      state.textArea = action.payload;
-      return state;
+      const stateCopy = { ...state };
+      stateCopy.textArea = action.payload;
+      return stateCopy;
     }
     default: return state;
   }

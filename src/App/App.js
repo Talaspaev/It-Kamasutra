@@ -11,7 +11,7 @@ import './App.css';
 
 const App = () => {
   const Items = Object.values(NavItem);
-  const itemRoute = ({ id, path, component }) => (<Route key={id} exact path={path} render={() => component()} />);
+  const itemRoute = ({ id, path, component }) => (<Route key={id} exact path={path} render={component} />);
   const RouteItem = Items.map(itemRoute);
 
   return (

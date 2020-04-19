@@ -30,12 +30,17 @@ const dialogsReducer = (state = initailState, action) => {
         src: 'https://img.gazeta.ru/files3/784/11560784/skrskr2-pic905-895x505-4108.jpg',
 
       };
-      state.dialogsData.unshift(messageData);
-      state.newMessage = '';
-      return state;
+      const stateCopy = { ...state };
+      stateCopy.dialogsData = [...state.dialogsData];
+      stateCopy.dialogsData.unshift(messageData);
+      stateCopy.newMessage = '';
+      return stateCopy;
     }
-    case ACTION_TYPES.UPDATE_NEW_MESSAGE: state.newMessage = action.payload;
-      return state;
+    case ACTION_TYPES.UPDATE_NEW_MESSAGE: {
+      const stateCopy = { ...state };
+      stateCopy.newMessage = action.payload;
+      return stateCopy;
+    }
     default: return state;
   }
 };
