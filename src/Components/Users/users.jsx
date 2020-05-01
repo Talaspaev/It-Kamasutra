@@ -5,41 +5,44 @@ import { I18N } from '../../constants';
 
 import style from './users.module.css';
 
-const users = (props) => {
-  const loadUsers = () => {
-    if (props.users.length === 0) {
-      axios.get('https://social-network.samuraijs.com/api/1.0/users').then((response) => {
-        props.setUsers(response.data.items);
-      });
-    }
-  };
-  const toggleButton = (followed, id) => (followed ? <button type="button" onClick={() => { props.unfollowUser(id); }}>{I18N.ENG.UNFOLLOW}</button>
-    : <button type="button" onClick={() => { props.followUser(id); }}>{I18N.ENG.FOLLOW}</button>);
+import defaultImg from '../Image/person.jpg';
 
-  const usersItem = ({
-    id, photoUrl, followed, fullname, status,
-  }) => (
-    <div key={id} className={style.item}>
-      <div>
-        <img src={photoUrl} alt="" className={style.img} />
-        {toggleButton(followed, id)}
-      </div>
-      <div>
+class Users extends React.Component {
+  constructor(props) {
+    super(props);
+    axios.get('https://social-network.samuraijs.com/api/1.0/users').then((response) => {
+      this.props.setUsers(response.data.items);
+    });
+  }
+
+  render() {
+    const toggleButton = (followed, id) => (followed ? <button type="button" onClick={() => { this.props.unfollowUser(id); }}>{I18N.ENG.UNFOLLOW}</button>
+      : <button type="button" onClick={() => { this.props.followUser(id); }}>{I18N.ENG.FOLLOW}</button>);
+
+    const usersItem = ({
+      id, photos, followed, name, status,
+    }) => (
+      <div key={id} className={style.item}>
         <div>
-          {fullname}
-          {status}
+          <img src={photos.small !== null ? photos.small : defaultImg} alt="" className={style.img} />
+          {toggleButton(followed, id)}
+        </div>
+        <div>
+          <div>
+            {name}
+            {status}
+          </div>
         </div>
       </div>
-    </div>
-  );
-  const usersContainer = props.users.map(usersItem);
-  return (
-    <div>
-      <button onClick={loadUsers}>Load</button>
-      {usersContainer}
-    </div>
+    );
+    const usersContainer = this.props.users.map(usersItem);
+    return (
+      <div>
+        {usersContainer}
+      </div>
 
-  );
-};
+    );
+  }
+}
 
-export default users;
+export default Users;
