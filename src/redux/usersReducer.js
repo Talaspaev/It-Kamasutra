@@ -27,7 +27,7 @@ const usersReducer = (state = initailState, action) => {
         }),
       }; }
     case ACTION_TYPES.SET_USERS: {
-      const stateCopy = { ...state, users: [...state.users, ...action.payload] };
+      const stateCopy = { ...state, users: action.payload };
       return stateCopy;
     }
     default: return state;
