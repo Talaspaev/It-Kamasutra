@@ -9,16 +9,16 @@ import style from './dialogs.module.css';
 
 
 const Dialogs = (props) => {
-  const { dialogsPages, AddNewMessage, ChangeNewMessage } = props;
+  const { dialogsPages, addNewMessage, changeNewMessage } = props;
   const { dialogsData } = dialogsPages;
 
   const onAddNewMessage = () => {
-    AddNewMessage();
+    addNewMessage();
   };
 
   const onChangeNewMessage = (e) => {
     const text = e.target.value;
-    ChangeNewMessage(text);
+    changeNewMessage(text);
   };
 
   return (

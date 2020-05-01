@@ -7,10 +7,10 @@ const mapStateToProps = (state) => ({
   dialogsPages: state.dialogsPages,
 });
 const mapDispatchToProps = (dispatch) => ({
-  AddNewMessage: () => {
+  addNewMessage: () => {
     dispatch(addMessageActionCreator());
   },
-  ChangeNewMessage: (text) => {
+  changeNewMessage: (text) => {
     dispatch(updateMessageActionCreator(text));
   },
 

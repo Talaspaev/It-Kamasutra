@@ -9,5 +9,6 @@ const I18Y = {
 const ROUTES = {
   DIALOG: 'dialog',
 };
+const I18N = { ENG: { UNFOLLOW: 'Unfollow', FOLLOW: 'Follow' }, RU: { UNFOLLOW: 'Отписаться', FOLLOW: 'Подписаться' } };
 
-export { I18Y, ROUTES };
+export { I18Y, I18N, ROUTES };
