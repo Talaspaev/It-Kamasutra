@@ -1,20 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-import { store } from './redux/state';
+import { store } from './redux/redux-state';
 import App from './App/App';
 
-const renderFunc = (state) => {
+const renderFunc = () => {
   ReactDOM.render(
-    <App
-      state={state}
-      dispatch={store.dispatch.bind(store)}
-    />,
+    <Provider store={store}>
+      <App />
+    </Provider>,
     document.getElementById('root'),
   );
 };
 
-renderFunc(store.getState());
-store.subscribe(renderFunc);
+renderFunc();
 
 export default renderFunc;

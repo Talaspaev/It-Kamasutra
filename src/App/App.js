@@ -9,9 +9,9 @@ import SiteBar from '../Components/SiteBar/siteBar';
 
 import './App.css';
 
-const App = (props) => {
+const App = () => {
   const Items = Object.values(NavItem);
-  const itemRoute = ({ id, path, component }) => (<Route key={id} exact path={path} render={() => component(props)} />);
+  const itemRoute = ({ id, path, component }) => (<Route key={id} exact path={path} render={component} />);
   const RouteItem = Items.map(itemRoute);
 
   return (
@@ -22,7 +22,7 @@ const App = (props) => {
         <div className="app-wrapper-contnent">
           {RouteItem}
         </div>
-        <SiteBar state={props.state} />
+        <SiteBar />
       </div>
     </BrowserRouter>
   );

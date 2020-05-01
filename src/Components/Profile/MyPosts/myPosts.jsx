@@ -1,32 +1,30 @@
 import React from 'react';
 
-import { addPostActionCreator, updatePostActionCreator } from '../../../redux/state';
-
 import Post from './Post/post';
 
 import style from './myPosts.module.css';
 
 const MyPosts = (props) => {
-  const { dispatch } = props.props;
+  const { addPost, profilePages, handlerPost } = props;
   const refArea = React.createRef();
 
-  const addPost = () => {
-    dispatch(addPostActionCreator());
+  const addPostChange = () => {
+    addPost();
   };
 
-  const handlerPost = () => {
+  const handlerPostChange = () => {
     const text = refArea.current.value;
-    dispatch(updatePostActionCreator(text));
+    handlerPost(text);
   };
 
   return (
     <div>
       My posts
       <div />
-      <textarea onChange={handlerPost} value={props.props.state.ProfilePages.textArea} ref={refArea} />
-      <button onClick={addPost} type="button">Add post</button>
+      <textarea onChange={handlerPostChange} value={profilePages.textArea} ref={refArea} />
+      <button onClick={addPostChange} type="button">Add post</button>
       <div className={style.posts}>
-        <Post messages={props.props.state.ProfilePages} />
+        <Post messages={profilePages} />
       </div>
     </div>
   );
