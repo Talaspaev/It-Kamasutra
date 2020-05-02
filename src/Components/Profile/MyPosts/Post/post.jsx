@@ -8,8 +8,8 @@ const Post = (props) => {
   const { profileData } = props.messages;
   const postArray = Object.values(profileData);
 
-  const postFunc = ({ id, like, message }) => (
-    <div className={style.item} key={`${id}`}>
+  const postFunc = ({ like, message }, index) => (
+    <div className={style.item} key={index}>
       <img src={logo} alt="logo" />
       <span>
         like:

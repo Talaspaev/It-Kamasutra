@@ -7,7 +7,7 @@ import style from './nav.module.css';
 
 const NavBar = () => {
   const Items = Object.values(NavItem);
-  const itemRoute = ({ id, path, name }) => (<div key={id} className={style.item}><NavLink to={path} activeClassName={style.active}>{name}</NavLink></div>);
+  const itemRoute = ({ path, name }, index) => (<div key={index} className={style.item}><NavLink to={path} activeClassName={style.active}>{name}</NavLink></div>);
   const NavItemWrap = Items.map(itemRoute);
 
   return (
