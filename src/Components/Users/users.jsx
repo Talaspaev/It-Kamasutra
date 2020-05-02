@@ -11,11 +11,19 @@ import style from './users.module.css';
 import defaultImg from '../Image/person.jpg';
 
 class Users extends React.Component {
+  state : {
+    pages=[]
+  }
   componentDidMount() {
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-      .then((response) => {
-        this.props.setUsers(response.data.items);
-        this.props.setTotalUsersCount(response.data.totalCount);
+    const {
+      setUsers, setTotalUsersCount, currentPage, pageSize,
+    } = this.props;
+
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
+      .then(({ data }) => {
+        const { items, totalCount } = data;
+        setUsers(items);
+        setTotalUsersCount(totalCount);
       });
   }
 
@@ -27,27 +35,38 @@ class Users extends React.Component {
       pages.push(i);
     }
     const onPageSelected = (pageNumber) => {
-      this.props.setCurrentPage(pageNumber);
-      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-        .then((response) => {
-          this.props.setUsers(response.data.items);
+      const {
+        setUsers, setCurrentPage, pageSize,
+      } = this.props;
+
+      setCurrentPage(pageNumber);
+      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`)
+        .then((data) => {
+          const { items } = data;
+          setUsers(items);
         });
     };
-    const createSpans = () => (
-      <div>
-        {pages.map((p) => (
-          <span
-            className={this.props.currentPage === p && style.selected ? style.selected : style.defaultspan}
-            onClick={() => { onPageSelected(p); }}
-          >
-            {p}
-          </span>
-        ))}
-      </div>
-    );
+    const createSpans = () => {
+      const { currentPage } = this.props;
+      return (
+        <div>
+          {pages.map((p) => (
+            <span
+              className={currentPage === p && style.selected ? style.selected : style.defaultspan}
+              onClick={() => { onPageSelected(p); }}
+            >
+              {p}
+            </span>
+          ))}
+        </div>
+      );
+    };
 
-    const toggleButton = (followed, id) => (followed ? <button type="button" onClick={() => { this.props.unfollowUser(id); }}>{I18N.ENG.UNFOLLOW}</button>
-      : <button type="button" onClick={() => { this.props.followUser(id); }}>{I18N.ENG.FOLLOW}</button>);
+    const toggleButton = (followed, id) => {
+      const { followUser, unfollowUser } = this.props;
+      return (followed ? <button type="button" onClick={() => { unfollowUser(id); }}>{I18N.ENG.UNFOLLOW}</button>
+        : <button type="button" onClick={() => { followUser(id); }}>{I18N.ENG.FOLLOW}</button>);
+    };
 
     const usersItem = ({
       id, photos, followed, name, status,
@@ -65,11 +84,15 @@ class Users extends React.Component {
         </div>
       </div>
     );
-    const usersContainer = this.props.users.map(usersItem);
+    const usersContainer = () => {
+      const { users } = this.props;
+      return users.map(usersItem);
+    };
+
     return (
       <div>
         {createSpans()}
-        <div>{usersContainer}</div>
+        <div>{usersContainer()}</div>
       </div>
 
     );

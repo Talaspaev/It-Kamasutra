@@ -4,7 +4,7 @@ import {
   followUserActionCreator, unfollowUserActionCreator, setUserActionCreator, setCurrentPageCreator, setTotalUsersCountCreator,
 } from '../../redux/redux-state';
 
-import Users from './Users';
+import Users from './users';
 
 const mapStateToProps = (state) => ({
   users: state.usersPages.users,
