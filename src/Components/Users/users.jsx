@@ -1,10 +1,7 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import * as axios from 'axios';
 
-import { I18N } from '../../constants';
+import { I18N, API } from '../../constants';
 
 import style from './users.module.css';
 
@@ -19,7 +16,7 @@ class Users extends React.Component {
       setUsers, setTotalUsersCount, currentPage, pageSize,
     } = this.props;
 
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
+    axios.get(`${API.BASE_URL}${API.USER_RESOURCE}${API.PAGE}${currentPage}${API.COUNT}${pageSize}`)
       .then(({ data }) => {
         const { items, totalCount } = data;
         setUsers(items);
@@ -39,8 +36,8 @@ class Users extends React.Component {
     const { setUsers, setCurrentPage, pageSize, } = this.props;
 
     setCurrentPage(pageNumber);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`)
-      .then((data) => {
+    axios.get(`${API.BASE_URL}${API.USER_RESOURCE}${API.PAGE}${pageNumber}${API.COUNT}${pageSize}`)
+      .then(({data}) => {
         const { items } = data;
         setUsers(items);
       });
@@ -50,8 +47,8 @@ class Users extends React.Component {
 
     return (
       <div>
-        {this.state.pages.map((p) => (
-          <span
+        {this.state.pages.map((p,index) => (
+          <span key={index}
             className={currentPage === p && style.selected ? style.selected : style.defaultspan}
             onClick={() => { this.onPageSelected(p); }}
           >
@@ -89,11 +86,7 @@ class Users extends React.Component {
 
     return Math.ceil(totalUsersCount / pageSize);
   }
-  usersContainer = () => {
-    const { users } = this.props;
-
-    return users.map(this.usersItem);
-  };
+  usersContainer = () => {return this.props.users.map(this.usersItem);};
   render() {
     return (
       <div>
