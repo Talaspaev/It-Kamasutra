@@ -21,10 +21,11 @@ class Users extends React.Component {
         const { items, totalCount } = data;
         setUsers(items);
         setTotalUsersCount(totalCount);
-        this.a();
+        this.createInitialPagesInState();
       });
   }
-  a = () => {
+
+  createInitialPagesInState = () => {
     const pages = [];
     for (let i = 1; i <= this.pagesCount(); i++) {
       pages.push(i);
@@ -42,22 +43,29 @@ class Users extends React.Component {
         setUsers(items);
       });
   };
-  createSpans = () => {
-    const { currentPage } = this.props;
 
+  createSpan=(p,index) =>{
+    const { currentPage } = this.props;
+    return(
+    
+      <span key={index}
+        className={currentPage === p && style.selected ? style.selected : style.defaultspan}
+        onClick={() => { this.onPageSelected(p); }}
+      >
+        {p}
+      </span>
+    );
+  } 
+
+  createSpans = () => {
+    const {pages}=this.state;
     return (
       <div>
-        {this.state.pages.map((p,index) => (
-          <span key={index}
-            className={currentPage === p && style.selected ? style.selected : style.defaultspan}
-            onClick={() => { this.onPageSelected(p); }}
-          >
-            {p}
-          </span>
-        ))}
+        {pages.map(this.createSpan)}
       </div>
     );
   };
+
   toggleButton = (followed, id) => {
     const { followUser, unfollowUser } = this.props;
 
@@ -81,12 +89,15 @@ class Users extends React.Component {
         </div>
       </div>
     );
+
   pagesCount = () => {
     const { totalUsersCount, pageSize, } = this.props;
 
     return Math.ceil(totalUsersCount / pageSize);
   }
-  usersContainer = () => {return this.props.users.map(this.usersItem);};
+
+  usersContainer = () =>  this.props.users.map(this.usersItem);
+
   render() {
     return (
       <div>
