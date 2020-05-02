@@ -11,9 +11,9 @@ import style from './users.module.css';
 import defaultImg from '../Image/person.jpg';
 
 class Users extends React.Component {
-  state : {
-    pages=[]
-  }
+  state = {
+    pages: [],
+  };
   componentDidMount() {
     const {
       setUsers, setTotalUsersCount, currentPage, pageSize,
@@ -24,57 +24,57 @@ class Users extends React.Component {
         const { items, totalCount } = data;
         setUsers(items);
         setTotalUsersCount(totalCount);
+        this.a();
       });
   }
-
-  render() {
-    const pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+  a = () => {
     const pages = [];
-
-    for (let i = 1; i <= pagesCount; i++) {
+    for (let i = 1; i <= this.pagesCount(); i++) {
       pages.push(i);
     }
-    const onPageSelected = (pageNumber) => {
-      const {
-        setUsers, setCurrentPage, pageSize,
-      } = this.props;
+    this.setState({ pages })
+  }
 
-      setCurrentPage(pageNumber);
-      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`)
-        .then((data) => {
-          const { items } = data;
-          setUsers(items);
-        });
-    };
-    const createSpans = () => {
-      const { currentPage } = this.props;
-      return (
-        <div>
-          {pages.map((p) => (
-            <span
-              className={currentPage === p && style.selected ? style.selected : style.defaultspan}
-              onClick={() => { onPageSelected(p); }}
-            >
-              {p}
-            </span>
-          ))}
-        </div>
-      );
-    };
+  onPageSelected = (pageNumber) => {
+    const { setUsers, setCurrentPage, pageSize, } = this.props;
 
-    const toggleButton = (followed, id) => {
-      const { followUser, unfollowUser } = this.props;
-      return (followed ? <button type="button" onClick={() => { unfollowUser(id); }}>{I18N.ENG.UNFOLLOW}</button>
-        : <button type="button" onClick={() => { followUser(id); }}>{I18N.ENG.FOLLOW}</button>);
-    };
+    setCurrentPage(pageNumber);
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${pageSize}`)
+      .then((data) => {
+        const { items } = data;
+        setUsers(items);
+      });
+  };
+  createSpans = () => {
+    const { currentPage } = this.props;
 
-    const usersItem = ({
-      id, photos, followed, name, status,
-    }) => (
+    return (
+      <div>
+        {this.state.pages.map((p) => (
+          <span
+            className={currentPage === p && style.selected ? style.selected : style.defaultspan}
+            onClick={() => { this.onPageSelected(p); }}
+          >
+            {p}
+          </span>
+        ))}
+      </div>
+    );
+  };
+  toggleButton = (followed, id) => {
+    const { followUser, unfollowUser } = this.props;
+
+    return (followed ? <button type="button" onClick={() => { unfollowUser(id); }}>{I18N.ENG.UNFOLLOW}</button>
+      : <button type="button" onClick={() => { followUser(id); }}>{I18N.ENG.FOLLOW}</button>);
+  };
+
+  usersItem = ({
+    id, photos, followed, name, status,
+  }) => (
       <div key={id} className={style.item}>
         <div>
           <img src={photos.small !== null ? photos.small : defaultImg} alt="" className={style.img} />
-          {toggleButton(followed, id)}
+          {this.toggleButton(followed, id)}
         </div>
         <div>
           <div>
@@ -84,15 +84,21 @@ class Users extends React.Component {
         </div>
       </div>
     );
-    const usersContainer = () => {
-      const { users } = this.props;
-      return users.map(usersItem);
-    };
+  pagesCount = () => {
+    const { totalUsersCount, pageSize, } = this.props;
 
+    return Math.ceil(totalUsersCount / pageSize);
+  }
+  usersContainer = () => {
+    const { users } = this.props;
+
+    return users.map(this.usersItem);
+  };
+  render() {
     return (
       <div>
-        {createSpans()}
-        <div>{usersContainer()}</div>
+        {this.createSpans()}
+        <div>{this.usersContainer()}</div>
       </div>
 
     );
