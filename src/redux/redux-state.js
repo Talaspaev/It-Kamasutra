@@ -12,6 +12,7 @@ const reducers = combineReducers({
   profilePages: profileReducer,
   usersPages: usersReducer,
 });
+
 const store = createStore(reducers);
 
 const addPostActionCreator = () => actionCreator(ACTION_TYPES.ADD_POST);
@@ -25,7 +26,10 @@ const unfollowUserActionCreator = (userId) => actionCreator(ACTION_TYPES.UNFOLLO
 
 const setUserActionCreator = (users) => actionCreator(ACTION_TYPES.SET_USERS, users);
 
+const setCurrentPageCreator = (currentPage) => actionCreator(ACTION_TYPES.SET_CURRENT_PAGE, currentPage);
+const setTotalUsersCountCreator = (totalUsersCount) => actionCreator(ACTION_TYPES.SET_TOTAL_USERS_COUNT, totalUsersCount);
+
 export {
   store, addPostActionCreator, updatePostActionCreator, addMessageActionCreator, updateMessageActionCreator,
-  followUserActionCreator, unfollowUserActionCreator, setUserActionCreator,
+  followUserActionCreator, unfollowUserActionCreator, setUserActionCreator, setCurrentPageCreator, setTotalUsersCountCreator,
 };

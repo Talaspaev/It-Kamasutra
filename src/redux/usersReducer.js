@@ -2,6 +2,9 @@ import ACTION_TYPES from '../actionTypes';
 
 const initailState = {
   users: [],
+  pageSize: 10,
+  totalUsersCount: 100,
+  currentPage: 15,
 };
 
 const usersReducer = (state = initailState, action) => {
@@ -27,7 +30,15 @@ const usersReducer = (state = initailState, action) => {
         }),
       }; }
     case ACTION_TYPES.SET_USERS: {
-      const stateCopy = { ...state, users: [...state.users, ...action.payload] };
+      const stateCopy = { ...state, users: action.payload };
+      return stateCopy;
+    }
+    case ACTION_TYPES.SET_CURRENT_PAGE: {
+      const stateCopy = { ...state, currentPage: action.payload };
+      return stateCopy;
+    }
+    case ACTION_TYPES.SET_TOTAL_USERS_COUNT: {
+      const stateCopy = { ...state, totalUsersCount: action.payload };
       return stateCopy;
     }
     default: return state;

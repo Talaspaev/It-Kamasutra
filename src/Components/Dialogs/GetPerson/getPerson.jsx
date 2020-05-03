@@ -14,10 +14,10 @@ const GetPerson = (props) => {
     alert('The image could not be loaded.');
   };
 
-  const sd = ({ id, name, src }) => (
-    <div key={id} className={style.wrapper}>
+  const sd = ({ name, src }, index) => (
+    <div key={index} className={style.wrapper}>
       <div className={style.imgContainer}><img src={src} className={style.img} alt="alt" onError={errorFunc} /></div>
-      <NavLink to={`${ROUTES.DIALOG}/${id}`} className={style.item}>{name}</NavLink>
+      <NavLink to={`${ROUTES.DIALOG}/${index}`} className={style.item}>{name}</NavLink>
     </div>
   );
   const RouteItem = itemsArray.map(sd);

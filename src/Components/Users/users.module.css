@@ -25,3 +25,9 @@
     border:1px solid peru;
     border-radius: 60px;
 }
+.selected,.defaultspan{
+margin-right:2px ;
+}
+.selected{
+    font-weight: bold;
+}
